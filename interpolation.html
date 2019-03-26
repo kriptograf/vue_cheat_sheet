@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interpolation app</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Интерполяция -->
+        <h1>Hello {{name}}</h1>
+        <p>Sum: {{ 10+40 }}</p>
+        <p>Number: {{num}}</p>
+        <p>Method: {{sayHello()}}</p>
+        <p>В фигурных скобках можно выводить переменные, результат работы функции, выражения, функции, тернарные операторы</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                /*Объект с данными экземпляра Vue. 
+                Vue рекурсивно преобразует его свойства в геттеры/сеттеры, 
+                чтобы сделать их «реактивными».*/
+                name: 'Vue!',
+                num: 190
+            },
+            methods: {
+                sayHello:function(){
+                    return 'This is a function';
+                }
+            },  
+        });
+    </script>
+</body>
+</html>
