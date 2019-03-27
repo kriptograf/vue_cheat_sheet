@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Event</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-on:mouseover="onHover">Счетчик = {{ counter }}</h1>
+        <button v-on:click="upCounter">Увеличить</button>
+        <button v-on:click="downCounter">Уменьшить</button>
+        <p>Для обработки событий используется директива v-on:jsEvent="методОбработчик".</p>
+        <p><strong>jsEvent</strong> стандартное js событие</p>
+        <p><strong>методОбработчик</strong> какая то функция в секции methods, выполняющая некоторые действия при возникновении события</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            methods: {
+                upCounter: function(){
+                    this.counter++;
+                },
+                downCounter: function() {
+                    this.counter--;
+                },
+                onHover: function(event){
+                    event.target.style.color = '#cccccc';
+                }
+            },
+        });
+    </script>
+</body>
+</html>
