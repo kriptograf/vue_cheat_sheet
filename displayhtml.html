@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Display Html to view</title>
+</head>
+<body>
+    <div id="app">
+        <i>Не правильно</i>
+        <h1>{{ html }}</h1>
+        <i>Правильно выводить html из переменных при помощи директивы v-html</i>
+        <h1 v-html="html"></h1>
+        <!-- Байндим сгенерированный html код спомощью директивы v-html, здесь происходит компиляция -->
+        <!-- Таким образом можно выводить какой то код полученный с сервера -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                html: '<a href="http://ya.ru">Yandex</a>'
+            }
+        });
+    </script>
+</body>
+</html>
