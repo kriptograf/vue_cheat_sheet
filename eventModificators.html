@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event modifiers</title>
+</head>
+<body>
+    <div id="app">
+        <p>Стандартная обработка поведения через event.preventDefault();</p>
+        <a href="http://google.com" target="_blank" v-on:click="handleOnGoogle">Google</a>
+        <p></p>
+        <hr>
+        <p>Обработка поведения через prevent: v-on:click.prevent=""</p>
+        <a href="http://google.com" target="_blank" v-on:click.prevent="">Google</a>
+        <hr>
+        <h2 v-on:mousemove="handleMouseMove">
+            X: {{x}} - Y: {{y}}
+            <span v-on:mousemove.stop="">STOP</span>
+        </h2>
+        <p>На элементе STOP установлен модификатор stop (stopPropagation();) и на него событие не распостраняется</p>
+        <hr>
+        <input type="text" v-on:keyup.enter.space="handleKeyUp">
+        <p>У события keyup применили модификатор enter, что соответствует нажатию на Enter.</p>
+        <p>По цепочке можно вызывать другие модификаторы</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                x: 0,
+                y: 0
+            },
+            methods: {
+                handleOnGoogle: function(event){
+                    event.preventDefault();
+                    console.log('click google');
+                },
+                handleMouseMove: function(event){
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                handleKeyUp: function(event){
+                    alert(event.target.value);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
