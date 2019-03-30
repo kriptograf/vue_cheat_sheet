@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Model of form</title>
+</head>
+<body>
+    <div id="app">
+        <p>Без помощи модели</p>
+        <input type="text" @input="text = $event.target.value" :value="text">
+        <p>{{ text }}</p>
+        <hr>
+        <p>При помощи модели</p>
+        <input type="text" v-model="text2">
+        <p>{{ text2 }}</p>
+        <p><i>У v-model существует модификатор lazy, обработка происходит после потери фокуса в поле ввода</i></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                text: 'Default value',
+                text2: ''
+            },
+            methods: {
+            }
+         });
+    </script>
+</body>
+</html>
