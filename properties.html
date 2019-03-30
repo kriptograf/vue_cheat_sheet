@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Properties to method</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Counter = {{ counter }}</h1>
+        <button v-on:click="riseCounter(5, $event)">5</button>
+        <button v-on:click="riseCounter(10, $event)">10</button>
+        <p>$event передается в качестве параметра в функцию. Это зарезервированное слово</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0
+            },
+            methods: {
+                riseCounter: function(num, event){
+                    this.counter += num;
+                    if(num === 5){
+                        event.target.style.color = 'red';//элементу вызвамшему событие, задать стиль
+                    }else if(num === 10){
+                        event.target.style.color = 'blue';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
